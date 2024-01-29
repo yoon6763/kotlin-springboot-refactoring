@@ -1,5 +1,7 @@
 package com.group.libraryapp.dto.user.request;
 
+import org.jetbrains.annotations.Nullable;
+
 public class UserUpdateRequest {
 
     private long id;

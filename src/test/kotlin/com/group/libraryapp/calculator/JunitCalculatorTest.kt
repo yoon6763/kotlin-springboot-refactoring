@@ -61,12 +61,10 @@ class JunitCalculatorTest {
         val calculator = Calculator(5)
 
         // when
-        val message = assertThrows<IllegalArgumentException> {
+        assertThrows<IllegalArgumentException> {
             calculator.divide(0)
-        }.message
-
-        // then
-        Assertions.assertThat(message).isEqualTo("0으로 나눌 수 없습니다.")
+        }.apply {
+            Assertions.assertThat(message).isEqualTo("0으로 나눌 수 없습니다.")
+        }
     }
-
 }

@@ -75,7 +75,7 @@ class BookServiceTest @Autowired constructor(
 
         // when & then
         val message = Assertions.catchThrowable { bookService.loanBook(request) }.message
-        Assertions.assertThat(message).isEqualTo("진작 대출되어 있는 책입니다")
+        Assertions.assertThat(message).isEqualTo("이미 대출된 책입니다.")
     }
 
     @Test

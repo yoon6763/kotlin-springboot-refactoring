@@ -46,7 +46,7 @@ class UserService(
         return userRepository.findAll().map { user ->
             UserLoanHistoryResponse(
                 name = user.name,
-                books = user.loanHistories.map { history ->
+                books = user.userLoanHistories.map { history ->
                     BookHistoryResponse(
                         name = history.bookName,
                         isReturn = history.status == UserLoanStatus.RETURNED

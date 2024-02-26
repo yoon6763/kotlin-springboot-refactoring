@@ -16,7 +16,7 @@ class User(
     val age: Int?,
 
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
-    val loanHistories: MutableList<UserLoanHistory> = mutableListOf(),
+    val userLoanHistories: MutableList<UserLoanHistory> = mutableListOf(),
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,10 +34,10 @@ class User(
     }
 
     fun loanBook(book:Book) {
-        loanHistories.add(UserLoanHistory(this, book.name))
+        userLoanHistories.add(UserLoanHistory(this, book.name))
     }
 
     fun returnBook(bookName: String) {
-        loanHistories.first { it.bookName == bookName }.doReturn()
+        userLoanHistories.first { it.bookName == bookName }.doReturn()
     }
 }
